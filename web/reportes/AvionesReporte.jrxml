@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3fac04d1-4716-4d47-af2e-d790af8179cc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from avion]]>
+	</queryString>
+	<field name="idavion" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="capacidad" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="105" y="20" width="350" height="40" forecolor="#3300CC" uuid="10dfa761-a455-4d91-b72d-7dedcae04751"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Listado de Aviones]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="d89cbad5-3166-4763-a3c0-b9746dda369e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="395" y="1" width="100" height="20" uuid="b9906bad-3aee-434c-831c-5a1fe013e7f2"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="0" width="100" height="20" uuid="1aa16423-5727-4798-8215-9adbc31a34e6"/>
+				<text><![CDATA[idavion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="0" width="100" height="20" uuid="9da2bce1-6eb3-40d1-8e18-63f6b98476e6"/>
+				<text><![CDATA[capacidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="43" y="0" width="100" height="20" uuid="301e745b-123a-42b9-840a-2487a07059b2"/>
+				<textFieldExpression><![CDATA[$F{idavion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="0" width="100" height="20" uuid="80f6a71a-8f94-4412-9d51-188bbb7d7555"/>
+				<textFieldExpression><![CDATA[$F{capacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="100" height="20" uuid="e4f7a486-cd9e-41d0-b4d5-dde380734325"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="422" y="10" width="80" height="20" uuid="f34cbd10-856b-4d87-8c69-0fa188b8de9f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="502" y="10" width="40" height="20" uuid="550ea273-6c15-4eda-9053-18c8db9727fb"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

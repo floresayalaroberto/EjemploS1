@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../plantilla/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+
+            <ui:define name="content">
+                <h:form id="frmAvion">
+                    <p:growl id="messages" showDetail="true" autoUpdate="true"/> 
+                    <p:panel>
+                        <f:facet name="header">
+                            <h2>Agregar nuevo empleado</h2>
+                        </f:facet>                
+                        <p:panelGrid columns="2">
+                            <h:outputLabel for="id" value="ID Avion:"/>
+                            <p:inputText id="id" value="#{AvionBean.avion.idavion}" required="true" requiredMessage="Por favor digite el nombre"/>
+                            <h:outputLabel for="capacidad" value="Capacidad:"/>
+                            <p:inputText id="capacidad" value="#{AvionBean.avion.capacidad}"/>                    
+                            <h:outputLabel for="descripcion" value="Descripcion"/>
+                            <p:inputText id="descripcion" value="#{AvionBean.avion.descripcion}"/>
+                            <p:commandButton value="#{AvionBean.accion}" update="messages frmAvion" 
+                                             action="#{AvionBean.doAccion()}">
+                            </p:commandButton>
+                        </p:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</ui:composition>

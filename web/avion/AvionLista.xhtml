@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+          
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+            <ui:define name="content">
+  
+                <h:outputLabel value="AvionLista"/>
+                <f:view>
+                    <h:form>
+                        <h:commandButton value="Nuevo Avion" action="AvionForm"/>
+                        <p:commandButton id="ver" value="Ver reporte" ajax="false" action="#{controlReporte.generarReporte('pdf')}" onclick="target = '_blank'"/>
+                        <br></br><br></br>
+                        <h1><h:outputText value="Lista de Aviones"/></h1>
+                        <br></br>
+                        <p:dataTable value="#{AvionBean.aviones}" var="item">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ID Avion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idavion}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Capacidad"/>
+                                </f:facet>
+                                <h:outputText value="#{item.capacidad}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Descripcion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.descripcion}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
